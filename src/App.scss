@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Cera Pro Black';
+  src: url('assets/cera pro font/Cera Pro Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cera Pro Bold';
+  src: url('assets/cera pro font/Cera Pro Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cera Pro Light';
+  src: url('assets/cera pro font/Cera Pro Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cera Pro Medium';
+  src: url('assets/cera pro font/Cera Pro Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cera Pro Regular';
+  src: url('assets/cera pro font/Cera Pro Regular Italic.ttf') format('truetype');
+}
+
+.App{
+    background-color: #F5F5F5;
+}
+
+.navbar{
+  font-family: 'Cera Pro Medium';
+}
+
