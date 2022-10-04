@@ -27,6 +27,7 @@ function CalculationCard(props) {
 
     const handleChange2 = (event) => {
         setCurrency2(event.target.value);
+        setResult(0);
     };
 
     function convertToEuro() {
