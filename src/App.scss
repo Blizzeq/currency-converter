@@ -23,11 +23,134 @@
   src: url('assets/cera pro font/Cera Pro Regular Italic.ttf') format('truetype');
 }
 
-.App{
-    background-color: #F5F5F5;
+html, body {
+  height: 100%;
 }
 
-.navbar{
+.App {
+  background-color: #F5F5F5;
+  min-height: 100vh;
+}
+
+.navbar {
   font-family: 'Cera Pro Medium';
+  min-height: 8vh;
 }
 
+.card {
+  font-family: 'Cera Pro Medium';
+  border-radius: 0;
+  padding-inline: 3vw;
+  min-height: 40vh;
+  padding-top: 3vh;
+  padding-bottom: 25vh;
+
+  .card-content {
+    display: grid;
+    grid-template-areas:
+    "title title"
+    "from from"
+    "amount amount"
+    "to to"
+    "button result";
+    grid-template-columns: 1fr;
+    gap: 0.5vh;
+    margin: 0.5vh;
+  }
+
+  .card-content:nth-child(1) {
+    grid-area: title;
+    font-size: 7vw;
+    font-family: 'Cera Pro Bold';
+  }
+
+  .card-content:nth-child(2) {
+    grid-area: from;
+  }
+
+  .card-content:nth-child(3) {
+    grid-area: amount;
+  }
+
+  .card-content:nth-child(4) {
+    grid-area: to;
+  }
+
+  .card-content:nth-child(5) {
+    grid-area: result;
+    font-size: 7vw;
+  }
+
+  .card-content:nth-child(6) {
+      grid-area: button;
+      max-width: 10vw;
+
+  }
+}
+
+.footer {
+  font-family: 'Cera Pro Medium';
+
+  .btn {
+    background-color: #F5F5F5;
+  }
+
+  .fab {
+    scale: 1.5;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    border-radius: 1vw;
+    margin-inline: 20vw;
+    margin-top: 5vh;
+    padding-inline: 3vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    margin-bottom: 10vw;
+
+    .card-content {
+      display: grid;
+      grid-template-areas:
+    "title title"
+    "from from"
+    "amount amount"
+    "to to"
+    "result result"
+    "button button";
+      grid-template-columns: 1fr;
+      gap: 0.5vh;
+      margin: 0.5vh;
+    }
+
+    .card-content:nth-child(1) {
+      grid-area: title;
+      font-size: 1.7vw;
+      font-family: 'Cera Pro Bold';
+    }
+
+    .card-content:nth-child(2) {
+      grid-area: from;
+    }
+
+    .card-content:nth-child(3) {
+      grid-area: amount;
+    }
+
+    .card-content:nth-child(4) {
+      grid-area: to;
+    }
+
+    .card-content:nth-child(5) {
+      grid-area: result;
+      font-size: 1.7vw;
+    }
+
+    .card-content:nth-child(6) {
+      grid-area: button;
+      max-width: 6vw;
+
+    }
+  }
+}

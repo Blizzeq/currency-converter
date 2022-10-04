@@ -4,6 +4,7 @@ import {MDBCard, MDBCardBody} from "mdb-react-ui-kit";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/material";
 import CurrenciesObject from "./Currencies";
+import { v4 as uuidv4 } from 'uuid';
 
 function CalculationCard(props) {
 
@@ -11,9 +12,9 @@ function CalculationCard(props) {
 
     const [currency1, setCurrency1] = useState("EUR");
 
-    const [currency2, setCurrency2] = useState("ALL");
+    const [currency2, setCurrency2] = useState("USD");
 
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(Number());
 
     const [currency2Value, setCurrency2Value] = useState(0);
 
@@ -47,7 +48,7 @@ function CalculationCard(props) {
         });
     }
 
-    const [Currencies, setCurrencies] = useState({name: '', value: 0});
+    const [Currencies, setCurrencies] = useState({});
 
     function getCurrencies() {
         const options = {
@@ -89,7 +90,7 @@ function CalculationCard(props) {
                             onChange={handleChange}
                         >
                             {Object.keys(CurrenciesObject).map((key) => {
-                                return <MenuItem value={CurrenciesObject[key].code}><span
+                                return <MenuItem key={uuidv4()} value={CurrenciesObject[key].code}><span
                                     className={CurrenciesObject[key].flag} style={{scale: "1.3"}}/><span style={{
                                     marginLeft: "1rem",
                                     fontFamily: "Cera Pro Bold"
@@ -101,7 +102,7 @@ function CalculationCard(props) {
                         </Select>
                     </FormControl>
                 </div>
-                <div className={"card-content"}>
+                <div className="card-content">
                     <FormControl fullWidth>
                         <TextField
                             id="outlined-number"
@@ -112,7 +113,6 @@ function CalculationCard(props) {
                             InputLabelProps={{
                                 shrink: true,
                             }}
-
                         />
                     </FormControl>
                 </div>
@@ -127,7 +127,7 @@ function CalculationCard(props) {
                             onChange={handleChange2}
                         >
                             {Object.keys(CurrenciesObject).map((key) => {
-                                return <MenuItem value={CurrenciesObject[key].code}><span
+                                return <MenuItem key={uuidv4()} value={CurrenciesObject[key].code}><span
                                     className={CurrenciesObject[key].flag} style={{scale: "1.3"}}/><span style={{
                                     marginLeft: "1rem",
                                     fontFamily: "Cera Pro Bold"
@@ -139,13 +139,11 @@ function CalculationCard(props) {
                         </Select>
                     </FormControl>
                 </div>
-                <div className={"card-content"}>
-                    <span>{result}</span>
+                <div className="card-content">
+                    {result !== 0 ? <span>{result.toFixed(3)} {currency2}</span> : null}
                 </div>
                 <div className="card-content">
-                    <button onClick={convertToEuro}>Convert</button>
-                    <button onClick={getCurrencies}>Get Currencies</button>
-                    <button onClick={consoleLog}>Console Log</button>
+                    <button className="btn btn-light" style={{border: "1px solid gray"}} onClick={convertToEuro}>Convert</button>
                 </div>
             </MDBCardBody>
         </MDBCard>

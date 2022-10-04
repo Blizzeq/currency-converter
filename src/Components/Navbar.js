@@ -35,14 +35,6 @@ function Navbar(props) {
                                     Home
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink href='#'>Link</MDBNavbarLink>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                                    Disabled
-                                </MDBNavbarLink>
-                            </MDBNavbarItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
