@@ -6,6 +6,7 @@ import {FormControl, InputLabel, MenuItem, Select, TextField} from "@mui/materia
 import CurrenciesObject from "./Currencies";
 import { v4 as uuidv4 } from 'uuid';
 
+
 function CalculationCard(props) {
 
     const axios = require("axios");
@@ -35,42 +36,16 @@ function CalculationCard(props) {
             url: 'https://currencyscoop.p.rapidapi.com/latest',
             params: {base: currency1},
             headers: {
-                'X-RapidAPI-Key': '8bc83d50f3msh5a1408af0da2021p1ce817jsnb4969645d4d3',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'currencyscoop.p.rapidapi.com'
             }
         };
 
         axios.request(options).then(function (response) {
-            console.log(response.data);
             setResult(response.data.response.rates[currency2] * amount);
         }).catch(function (error) {
             console.error(error);
         });
-    }
-
-    const [Currencies, setCurrencies] = useState({});
-
-    function getCurrencies() {
-        const options = {
-            method: 'GET',
-            url: 'https://currencyscoop.p.rapidapi.com/latest',
-            headers: {
-                'X-RapidAPI-Key': '8bc83d50f3msh5a1408af0da2021p1ce817jsnb4969645d4d3',
-                'X-RapidAPI-Host': 'currencyscoop.p.rapidapi.com'
-            }
-        };
-
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-            setCurrencies(response.data.response.rates);
-
-        }).catch(function (error) {
-            console.error(error);
-        });
-    }
-
-    function consoleLog() {
-        console.log(Currencies);
     }
 
     return (
