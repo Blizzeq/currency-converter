@@ -121,14 +121,17 @@ function CalculationCard(props) {
                         </Select>
                     </FormControl>
                 </div>
-                {showSpinner ? <div className="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+                {showSpinner ? <div className="spinner-border" style={{width: "5vh", height: "5vh"}} role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div> : null}
                 <div className="card-content">
                     {result !== 0 ? <span>{result.toFixed(3)} {currency2}</span> : null}
                 </div>
                 <div className="card-content">
-                    <button className="btn btn-light" style={{border: "1px solid gray"}} onClick={convertToEuro}>Convert</button>
+                    <button className="btn btn-light" style={{border: "1px solid gray"}} onClick={() => {
+                        convertToEuro();
+                        setResult(0);
+                    }}>Convert</button>
                 </div>
             </MDBCardBody>
         </MDBCard>
