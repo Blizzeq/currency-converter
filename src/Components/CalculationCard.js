@@ -23,12 +23,15 @@ function CalculationCard(props) {
 
     const handleChange = (event) => {
         setCurrency1(event.target.value);
+        setResult(0);
     };
 
     const handleChange2 = (event) => {
         setCurrency2(event.target.value);
         setResult(0);
     };
+
+    const [showSpinner, setShowSpinner] = useState(false);
 
     function convertToEuro() {
 
@@ -42,8 +45,11 @@ function CalculationCard(props) {
             }
         };
 
+        setShowSpinner(true);
+
         axios.request(options).then(function (response) {
             setResult(response.data.response.rates[currency2] * amount);
+            setShowSpinner(false);
         }).catch(function (error) {
             console.error(error);
         });
@@ -115,6 +121,9 @@ function CalculationCard(props) {
                         </Select>
                     </FormControl>
                 </div>
+                {showSpinner ? <div className="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div> : null}
                 <div className="card-content">
                     {result !== 0 ? <span>{result.toFixed(3)} {currency2}</span> : null}
                 </div>
